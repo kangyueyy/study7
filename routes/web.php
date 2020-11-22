@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
 
 //--------------- blog -----------------------
 Route::get('/blogindex', function () {
@@ -44,3 +44,8 @@ Route::get('/login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login', 'Auth\LoginController@login');
 Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 //--------------- blog后台 -----------------------
+
+//--------------- 地图 ------------------
+Route::get('/', 'Map\PostController@index')->name('map');
+Route::get('/map/getpoint', 'Map\PostController@getpoint');
+//--------------- 地图 ------------------
