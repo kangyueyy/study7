@@ -1,14 +1,16 @@
 <?php
 //创建Server对象，监听 127.0.0.1:9501 端口
-$server = new Swoole\Server('127.0.0.1', 9501);
+$server = new Swoole\Server('0.0.0.0', 9501);
 
 //监听连接进入事件
 $server->on('Connect', function ($server, $fd) {
-    echo "Client: Connect.\n";
+    echo "建立连接.\n";
 });
 
 //监听数据接收事件
 $server->on('Receive', function ($server, $fd, $from_id, $data) {
+    echo "接收到数据\n";
+    var_dump($data);
     $server->send($fd, "Server: " . $data);
 });
 
