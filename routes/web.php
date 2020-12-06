@@ -54,6 +54,6 @@ Route::get('/map/getpoint', 'Map\PostController@getpoint');
 //Route::any('/oaupdate/ajax/{action}', function ($action) {
 //    Route::any('/oaupdate/ajax/'.$action, 'datarecord\OaupdateController@' . $action);
 //});
-Route::any('/oaupdate/ajax/{action}', 'datarecord\OaupdateController@ajax');
-Route::any('/oaupdate/page/{action}', 'datarecord\OaupdateController@page');
+Route::any('/oaupdate/ajax/{action}', 'Datarecord\OaupdateController@ajax');
+Route::any('/oaupdate/page/{action}', 'Datarecord\OaupdateController@page');
 //-------------- 数据记录 --------------------
