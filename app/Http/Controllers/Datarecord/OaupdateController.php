@@ -64,6 +64,7 @@ class OaupdateController extends Controller
         $ret = $oaupdate->save();
         if ($ret) {
             echo "插入成功";
+            sleep(1);
             echo "<script>history.go(-1);</script>";
             exit;
         }
