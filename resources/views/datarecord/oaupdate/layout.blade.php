@@ -3,7 +3,7 @@
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <title>Free CSS template by ChocoTemplates.com</title>
-    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/css/oaupdate/style.css" type="text/css" media="all" />
 </head>
 <body>
 @include('datarecord/oaupdate/header')

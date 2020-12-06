@@ -54,6 +54,27 @@ Route::get('/map/getpoint', 'Map\PostController@getpoint');
 //Route::any('/oaupdate/ajax/{action}', function ($action) {
 //    Route::any('/oaupdate/ajax/'.$action, 'datarecord\OaupdateController@' . $action);
 //});
+//------------  更新记录  ---------
 Route::any('/oaupdate/ajax/{action}', 'Datarecord\OaupdateController@ajax');
 Route::any('/oaupdate/page/{action}', 'Datarecord\OaupdateController@page');
+//------------  更新记录  ---------
+
+//------------  登录  ---------
+Route::any('/oaupdate/login', 'Datarecord\LoginController@showlogin');
+//------------  登录  ---------
 //-------------- 数据记录 --------------------
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
