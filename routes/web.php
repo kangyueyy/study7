@@ -49,3 +49,11 @@ Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
 Route::get('/', 'Map\PostController@index')->name('map');
 Route::get('/map/getpoint', 'Map\PostController@getpoint');
 //--------------- 地图 ------------------
+
+//-------------- 数据记录 --------------------
+//Route::any('/oaupdate/ajax/{action}', function ($action) {
+//    Route::any('/oaupdate/ajax/'.$action, 'datarecord\OaupdateController@' . $action);
+//});
+Route::any('/oaupdate/ajax/{action}', 'datarecord\OaupdateController@ajax');
+Route::any('/oaupdate/page/{action}', 'datarecord\OaupdateController@page');
+//-------------- 数据记录 --------------------

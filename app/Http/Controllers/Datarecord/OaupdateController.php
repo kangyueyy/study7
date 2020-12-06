@@ -1,12 +1,39 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Datarecord;
 
 use App\Http\Controllers\Controller;
+use App\Oaupdate;
 use Illuminate\Http\Request;
 
-class LoginController extends Controller
+class OaupdateController extends Controller
 {
+    public function ajax($action)
+    {
+        switch ($action) {
+            case 'create':
+                $this->create();
+                break;
+            default:
+                echo '路由错误';
+                exit;
+                break;
+        }
+    }
+
+    public function page($action)
+    {
+        switch ($action) {
+            case 'index':
+                return $this->index();
+                break;
+            default:
+                echo '路由错误';
+                exit;
+                break;
+        }
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +41,12 @@ class LoginController extends Controller
      */
     public function index()
     {
+        $lists = Oaupdate::get();
+//        foreach ($lists as $key => $list) {
+//            var_dump($list->content);exit;
+//        }
         //
+        return view('datarecord.oaupdate.index',['lists'=>$lists]);
     }
 
     /**
@@ -25,6 +57,17 @@ class LoginController extends Controller
     public function create()
     {
         //
+        $oaupdate = new Oaupdate();
+        $oaupdate->content = $_REQUEST['content'] ?? '更新内容1';
+        $oaupdate->ver = $_REQUEST['ver'] ?? 1;
+        $oaupdate->extdata = $_REQUEST['extdata'] ?? '';
+        $ret = $oaupdate->save();
+        if ($ret) {
+            echo "插入成功";
+            echo "<script>history.go(-1);</script>";
+            exit;
+        }
+        echo "插入失败";
     }
 
     /**
@@ -81,16 +124,5 @@ class LoginController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function showLoginForm()
-    {
-        return view('admin.auth.login');
-    }
-
-    public  function  login()
-    {
-        echo "xxx";
-        exit;
     }
 }
